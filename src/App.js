@@ -1,11 +1,19 @@
-import React from "react";
+import React, {useState} from "react";
+import Counter from "./components/Counter";
 
 function App() {
+
+    const [value, setValue] = useState("");
+
   return (
     <div className="App">
-      <h1>Osel how are you ?</h1>
-      <button>increment</button>
-      <button>decrement</button>
+        <Counter/>
+        <Counter/>
+        <Counter/>
+        <Counter/>
+        <Counter/>
+        <Counter/>
+        <Counter/>
     </div>
   );
 }
