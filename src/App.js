@@ -13,16 +13,12 @@ function App() {
             {id:3, title: 'JavaScript 3', body:'Description of my POSTS'}
         ]
     )
-    // const [post, setPost] = useState({title: "", body: ""});
-    // const [title, setTitle] = useState();
-    // const [body, setBody] = useState();
 
     const [post, setPost] = useState({title:"", body:""});
 
     const addNewPost =  (e) => {
         e.preventDefault();
-
-        setPosts([...posts, {...post,id: Date.now()}]);
+        setPosts([...posts, {...post, id: Date.now()}]);
         setPost({title:"", body:""});
 
     }
