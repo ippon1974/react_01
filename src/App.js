@@ -3,7 +3,7 @@ import "./styles/App.css";
 import PostList from "./components/PostList";
 import MyButton from "./components/UI/button/MyButton";
 import MyInput from "./components/UI/input/MyInput";
-import PersonList from "./components/PersonList";
+import PostForm from "./components/PostForm";
 
 function App() {
 
@@ -15,45 +15,16 @@ function App() {
         ]
     )
 
-    const [persons, setPersons] = useState(
-        [
-            {id:1, name: 'JavaScript 1', age:'D'},
-            {id:1, name: 'JavaScript 1', age:'D'}
-        ]
-    )
-   ;
-
-    const [post, setPost] = useState({title:"", body:""});
-
-    const addNewPost =  (e) => {
-        e.preventDefault();
-        setPosts([...posts, {...post, id: Date.now()}]);
-        setPost({title:"", body:""});
-
+    const  createPost = (newPost) => {
+        setPosts([...posts, newPost])
     }
 
     return (
     <div className="App">
 
-        <form action="">
-            <MyInput
-                type="text"
-                value={post.title}
-                onChange={e => setPost({...post, title: e.target.value})}
-                placeholder="Название поста"/>
+        <PostForm create={createPost}/>
 
-            <MyInput
-                type="text"
-                value={post.body}
-                onChange={e => setPost({...post,body: e.target.value})}
-                placeholder="Описание поста"/>
-
-            <MyButton onClick={addNewPost}>Создать Пост</MyButton>
-        </form>
-
-        <PostList posts={posts} title="Post of JS"/>
-        <PersonList persons={persons}/>
-
+        <PostList posts={posts} title="List post of JS"/>
     </div>
   );
 }
