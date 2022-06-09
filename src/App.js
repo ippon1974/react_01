@@ -3,6 +3,7 @@ import "./styles/App.css";
 import PostList from "./components/PostList";
 import MyButton from "./components/UI/button/MyButton";
 import MyInput from "./components/UI/input/MyInput";
+import PersonList from "./components/PersonList";
 
 function App() {
 
@@ -13,6 +14,14 @@ function App() {
             {id:3, title: 'JavaScript 3', body:'Description of my POSTS'}
         ]
     )
+
+    const [persons, setPersons] = useState(
+        [
+            {id:1, name: 'JavaScript 1', age:'D'},
+            {id:1, name: 'JavaScript 1', age:'D'}
+        ]
+    )
+   ;
 
     const [post, setPost] = useState({title:"", body:""});
 
@@ -43,7 +52,7 @@ function App() {
         </form>
 
         <PostList posts={posts} title="Post of JS"/>
-
+        <PersonList persons={persons}/>
 
     </div>
   );

@@ -1,13 +1,12 @@
 import React from 'react';
-import Person from "./Person";
+import PersonItem from "./PersonItem";
 
-const PersonList = ({persons, title}) => {
+const PersonList = ({persons, index}) => {
     return (
         <div>
-            <h1 style={{textAlign:"center"}}>{title}</h1>
-            {persons.map(person =>
-                <Person person={person} key={person.id}/>
-            )}
+            {persons.map((person, index) =>
+                <PersonItem number={index + 1} person={person} key={person.id}/>
+                )}
         </div>
     );
 };
